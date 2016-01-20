@@ -1,9 +1,11 @@
-#include "escheme.h"
+#include "scheme.h"
+#include <stdio.h>
 
 #include "/Users/leif/racket/racket/src/racket/src/schpriv.h"
 
-Scheme_Object *unsafe_syntax_to_datum(Scheme_Object *o) {
-  ((Scheme_Stx *)o)->val;
+Scheme_Object *unsafe_syntax_to_datum(int argc, Scheme_Object** argv) {
+  Scheme_Stx *v = argv[0];
+  return v->val;
 }
 
 Scheme_Object *scheme_initialize(Scheme_Env *env) {
